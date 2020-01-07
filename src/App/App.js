@@ -11,6 +11,7 @@ import './App.css';
 import FolderForm from '../FolderForm/folderForm';
 import NotesForm from '../NotesForm/notesForm';
 import ErrorBoundary from '../ErrorBoundary/errorBoundary'
+import LoginPage from '../LoginPage';
 
 class App extends Component {
     state = {
@@ -77,6 +78,7 @@ class App extends Component {
                 <Route path="/note/:noteId" component={NotePageNav} />
                 <Route path="/add-note" component={NotePageNav} />
                 <Route path="/add-folder" component={NotePageNav} />
+                <Route path="/login" component={LoginPage} />
             </>
         );
     }

@@ -1,22 +1,22 @@
 import React from 'react';
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import NotefulForm from './NotefulForm'
+import Note from './Note'
 
-describe(`NotefulForm component`, () => {
+describe(`Note component`, () => {
   const props = {
-    className: 'test-class-name',
-    children: <p>test children</p>,
-    'data-other': 'test-other-prop'
+    id: 'a',
+    name: 'test-class-name',
+    modified: new Date(2018, 12, 15),
   }
 
-  it('renders a form.NotefulForm by default', () => {
-    const wrapper = shallow(<NotefulForm />)
+  it('renders a .Note by default', () => {
+    const wrapper = shallow(<Note />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
-  it('renders the NotefulForm given props', () => {
-    const wrapper = shallow(<NotefulForm {...props} />)
+  it('renders the Note given props', () => {
+    const wrapper = shallow(<Note {...props} />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })
