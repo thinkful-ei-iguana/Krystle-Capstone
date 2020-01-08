@@ -112,14 +112,14 @@ export default class NotesForm extends React.Component {
         const folderOptions = this.getFolderOptions();
         return (
             <form className="notes-form" onSubmit={() => this.handleNoteSubmit()}>
-                <label htmlFor="note-name">Note Name
+                <label htmlFor="note-name">Product Name
                 {this.state.noteName.touched &&
                         <p className="error">{this.validateNoteName()}</p>}
                 </label>
                 <input id="note-name" type="text" value={this.state.noteName.value}
                     onChange={e => this.setNoteName(e.target.value)} />
 
-                <label htmlFor="note-description">Note Description
+                <label htmlFor="note-description">Product Description
                 {this.state.noteDescription.touched &&
                         <p className="error">{this.validateNoteDescription()}</p>}
                 </label>
