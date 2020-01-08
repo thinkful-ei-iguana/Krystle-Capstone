@@ -139,9 +139,9 @@ export default class NotesForm extends React.Component {
                     this.validateNoteName() ||
                     this.validateNoteDescription() ||
                     this.validateSelectedValue()
-                }>Submit Note</button>
+                }>Submit Product</button>
             </form>
         )
     }
 
-}
+}   

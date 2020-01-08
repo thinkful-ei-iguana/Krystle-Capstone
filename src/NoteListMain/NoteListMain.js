@@ -42,7 +42,7 @@ export default class NoteListMain extends React.Component {
             <>
               <FontAwesomeIcon icon='plus' />
               <br />
-              New
+              Add
             </>
           </CircleButton>
         </div>
