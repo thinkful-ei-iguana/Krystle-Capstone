@@ -11,4 +11,3 @@ export default class NotFoundPage extends Component {
     )
   }
 }
-© 2020 GitHub, Inc.
