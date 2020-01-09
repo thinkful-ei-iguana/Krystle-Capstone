@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LoginForm from '../LoginForm'
+import LoginForm from './LoginForm'
 // import { Section } from '../LoginPage'
 
 export default class LoginPage extends Component {
@@ -18,12 +18,12 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <Section className='LoginPage'>
+      <div className='LoginPage'>
         <h2>Login</h2>
         <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
         />
-      </Section>
+      </div>
     )
   }
 }

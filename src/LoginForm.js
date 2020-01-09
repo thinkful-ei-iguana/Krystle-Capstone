@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Input } from '../Utils/Utils'
+// import { Button, Input } from './Utils/Utils'
 
 export default class LoginForm extends Component {
   static defaultProps = {
@@ -13,11 +13,34 @@ export default class LoginForm extends Component {
     const { user_name, password } = ev.target
 
     console.log('login form submitted')
-    console.log({ user_name, password })
-
-    user_name.value = ''
-    password.value = ''
-    this.props.onLoginSuccess()
+    fetch("http://localhost:8000/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        user_name: user_name.value,
+        password: password.value
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+        .then(res => {
+          if (res.ok) {
+            console.log("sign-in successful:", res);
+            return res;
+            //return res.json(); // for some reason this isn't working on successful sign-in
+          }
+          throw new Error(res.statusText);
+        })
+        .then(data => {
+          console.log("sign in successful", data)
+          user_name.value = ''
+          password.value = ''
+          this.props.onLoginSuccess()
+        })
+        .catch(err => {
+          alert("Sign in failed.");
+          console.error("Sign in failed:", err);
+        })
   }
 
   render() {
@@ -34,24 +57,24 @@ export default class LoginForm extends Component {
           <label htmlFor='LoginForm__user_name'>
             User name
           </label>
-          <Input
+          <input className="Input"
             name='user_name'
             id='LoginForm__user_name'>
-          </Input>
+          </input>
         </div>
         <div className='password'>
           <label htmlFor='LoginForm__password'>
             Password
           </label>
-          <Input
+          <input className="Input"
             name='password'
             type='password'
             id='LoginForm__password'>
-          </Input>
+          </input>
         </div>
-        <Button type='submit'>
+        <button className="Button" type='submit'>
           Login
-        </Button>
+        </button>
       </form>
     )
   }
